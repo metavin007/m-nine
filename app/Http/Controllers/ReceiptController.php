@@ -10,7 +10,7 @@ use App\Models\ReceiptDetail;
 use App\Models\Mycompany;
 use App\Models\Customer;
 use App\Models\Invoice;
-use Barryvdh\DomPDF\Facade\PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReceiptController extends Controller {
 

@@ -13,7 +13,7 @@ use App\Models\Dealer;
 use App\Models\Item;
 use App\Models\CustomerMainDealer;
 use App\Models\CustomerMainPrice;
-use Barryvdh\DomPDF\Facade\PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class InvoiceController extends Controller {
 
