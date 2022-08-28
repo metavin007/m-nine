@@ -44,7 +44,7 @@ class ReceiptController extends Controller {
     public function page_add() {
         $data['mycompany'] = Mycompany::first();
         $data['customers'] = Customer::orderBy('company_name_thai', 'asc')->get();
-        $id_last_ar = \DB::select('SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "' . env('DB_DATABASE') . '" AND TABLE_NAME = "tb_receipt";');
+        $id_last_ar = \DB::select('SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "lnwlnw_mnine" AND TABLE_NAME = "tb_receipt";');
         $id_last = $id_last_ar[0]->AUTO_INCREMENT;
         if (date('Ym') != substr($id_last, 0, 6)) {
             $data['code'] = "0001";
@@ -63,7 +63,7 @@ class ReceiptController extends Controller {
 
         $input_all = $request->all();
 
-        $id_last_ar = \DB::select('SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "' . env('DB_DATABASE') . '" AND TABLE_NAME = "tb_receipt";');
+        $id_last_ar = \DB::select('SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "lnwlnw_mnine" AND TABLE_NAME = "tb_receipt";');
         $id_last = $id_last_ar[0]->AUTO_INCREMENT;
         if (date('Ym') != substr($id_last, 0, 6)) {
             $code = "0001";
