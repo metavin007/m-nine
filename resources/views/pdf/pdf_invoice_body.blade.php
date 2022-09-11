@@ -82,41 +82,40 @@
 
         <table>      
             <tr>
-                <td style="font-size: 26px; color:#0a42f6; text-align: center;"><b>ใบแจ้งหนี้ / INVOICE</b></td>
+                <td style="font-size: 22px; color:#0a42f6; text-align: center;"><b>ใบแจ้งหนี้ / INVOICE</b></td>
             </tr>
         </table>
 
         <table>      
             <tr>
-                <td style="width: 100px;"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Customer</b></div></td>
+                <td style="width: 100px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Customer</b></div></td>
                 <td style="width: 10px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                <td style="width: 200px;"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Page No</b></div></td>
+                <td style="width: 200px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Page No</b></div></td>
                 <td style="width: 10px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><span class="page-number"></span></div></td>
             </tr>
             <tr>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Tax ID No.</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Tax ID No.</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->customer->tax_id_no . ' ' .$invoice->customer->branch }}</div></td>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>INVOICE NUMBER</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>INVOICE NUMBER</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->invoice_number }}</div></td>
             </tr>
             <tr>
-                <td colspan="3"><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->customer->company_name_eng }}</div></td>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>INVOICE DATE</b></div></td>
+                <td colspan="3" rowspan="4"><div style="color:#002060; font-size: 20px; line-height: 60%;">{!! $invoice->customer->company_name_eng . '<br/>' . $invoice->customer->address_eng !!}</div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>INVOICE DATE</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ date('d/m/Y', strtotime($invoice->invoice_date)) }}</div></td>
             </tr>
             <tr>
-                <td colspan="3" rowspan="3"><div style="color:#002060; font-size: 20px; line-height: 60%;">{!! $invoice->customer->address_eng !!}</div></td>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Due Date</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Due Date</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ date('d/m/Y', strtotime($invoice->due_date)) }}</div></td>
             </tr>
             <tr>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Credit Terms</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Credit Terms</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->credit_Terms . ' Days' }}</div></td>
             </tr>
@@ -127,7 +126,7 @@
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b></b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b></b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Our Reference number</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Our Reference number</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->our_reference_number }}</div></td>
             </tr>
@@ -135,19 +134,19 @@
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>{{ $invoice->dealer->group }}</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->dealer->name }}</div></td>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>HOUSE WAYBILL NUMBER</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>HOUSE WAYBILL NUMBER</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->house_way_number }}</div></td>
             </tr>
             <tr>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>ORI</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>ORI</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td>
                     <div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->dealer->ori }}  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
                         <b> DEST : </b> {{ $invoice->dealer->dest }}
                     </div>
                 </td>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>VESSEL/DATE</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>VESSEL/DATE</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->vessel_date }}</div></td>
             </tr>
@@ -158,11 +157,11 @@
                 <td colspan="5"><div style="color:white; font-size: 20px; line-height: 60%;"><b>text</b></div></td>
             </tr>
             <tr>
-                <td style="width: 160px;"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Marks and Numbers</b></div></td>
-                <td style="width: 160px;"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Description of Goods</b></div></td>
-                <td style="width: 160px;"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>No.of Packages</b></div></td>
-                <td style="width: 160px;"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>ACT Weight</b></div></td>
-                <td style="width: 160px;"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Volume</b></div></td>
+                <td style="width: 160px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Marks and Numbers</b></div></td>
+                <td style="width: 160px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Description of Goods</b></div></td>
+                <td style="width: 160px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>No.of Packages</b></div></td>
+                <td style="width: 160px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>ACT Weight</b></div></td>
+                <td style="width: 160px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Volume</b></div></td>
             </tr>
             <tr>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->mark_and_numbers1 }}</div></td>
@@ -196,18 +195,19 @@
                 <td align="center"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Date</b></div></td>
             </tr>
         </table>
+        <br/>
         <table>  
             <tr>
-                <td><div style="color:#002060; font-size: 20px; line-height: 60%;">* Please issue a crossed Cheque "A/C Payee Only" to " M-NINE (THAILAND) Limited."</div></td>
+                <td><div style="color:#002060; font-size: 16px; line-height: 60%;">* Please issue a crossed Cheque "A/C Payee Only" to " M-NINE (THAILAND) Limited."</div></td>
             </tr>
             <tr>
-                <td><div style="color:#002060; font-size: 20px; line-height: 60%;">* If you have any queries on the items mentioned herein, please notify within 7 days</div></td>
+                <td><div style="color:#002060; font-size: 16px; line-height: 60%;">* If you have any queries on the items mentioned herein, please notify within 7 days</div></td>
             </tr>
             <tr>
-                <td><div style="color:#002060; font-size: 20px; line-height: 60%;">* An interrest fee of 2% per month will be charged on your balance outstanding overdue.</div></td>
+                <td><div style="color:#002060; font-size: 16px; line-height: 60%;">* An interrest fee of 2% per month will be charged on your balance outstanding overdue.</div></td>
             </tr>
             <tr>
-                <td><div style="color:#002060; font-size: 20px; line-height: 60%;">* Invoice due date is counted from invoice date.</div></td>
+                <td><div style="color:#002060; font-size: 16px; line-height: 60%;">* Invoice due date is counted from invoice date.</div></td>
             </tr>
         </table>
     </footer>
@@ -229,10 +229,10 @@
                 <div style="margin-top: 380px;"></div>
                 <table style="margin-top: 10px; border: 1px solid; border-collapse: collapse; border-left: none; border-right: none; border-bottom: none;">  
                     <tr>
-                        <td style="width: 100px; border-bottom: 1px solid;"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>CODE</b></div></td>
-                        <td style="width: 250px; border-bottom: 1px solid;"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>PARTICULARS</b></div></td>
-                        <td style="width: 150px; border-bottom: 1px solid;" align="right"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>AMOUNT(BAHT)<br/>Non Taxable</b></div></td>
-                        <td style="width: 150px; border-bottom: 1px solid;" align="right"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>AMOUNT(BAHT)<br/>Vat 7%</b></div></td>
+                        <td style="width: 100px; border-bottom: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>CODE</b></div></td>
+                        <td style="width: 250px; border-bottom: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>PARTICULARS</b></div></td>
+                        <td style="width: 150px; border-bottom: 1px solid;" align="right"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>AMOUNT(BAHT)<br/>Non Taxable</b></div></td>
+                        <td style="width: 150px; border-bottom: 1px solid;" align="right"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>AMOUNT(BAHT)<br/>Vat 7%</b></div></td>
                     </tr>
                     @foreach($invoice_details as $invoice_detail)
                     <tr>
@@ -248,43 +248,43 @@
                     <tr>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                        <td><div style="color:#002060; font-size: 22px; line-height: 60%;" align="right"><b>Non Taxable Total</b></div></td>
+                        <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>Non Taxable Total</b></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right">{{ ($last_page ? number_format($invoice->non_taxable_total,2) : '') }}</div></td>
                     </tr>
                     <tr>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                        <td><div style="color:#002060; font-size: 22px; line-height: 60%;" align="right"><b>Taxable Total</b></div></td>
+                        <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>Taxable Total</b></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right">{{ ($last_page ? number_format($invoice->taxable_total,2) : '') }}</div></td>
                     </tr>
                     <tr>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                        <td><div style="color:#002060; font-size: 22px; line-height: 60%;" align="right"><b>Total Amount</b></div></td>
+                        <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>Total Amount</b></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right">{{ ($last_page ? number_format($invoice->total_amount,2) : '') }}</div></td>
                     </tr>
                     <tr>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                        <td><div style="color:#002060; font-size: 22px; line-height: 60%;" align="right"><b>VAT 7%</b></div></td>
+                        <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>VAT 7%</b></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right">{{ ($last_page ? number_format($invoice->vat_7,2) : '') }}</div></td>
                     </tr>
                     <tr>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                        <td><div style="color:#002060; font-size: 22px; line-height: 60%;" align="right"><b>Grand Total</b></div></td>
+                        <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>Grand Total</b></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right">{{ ($last_page ? number_format($invoice->grand_total,2) : '') }}</div></td>
                     </tr>
                     <tr>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                        <td><div style="color:#002060; font-size: 22px; line-height: 60%;" align="right"><b>With Holding Tax {{ $invoice->with_holding_tax }} %</b></div></td>
+                        <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>With Holding Tax {{ $invoice->with_holding_tax }} %</b></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right">{{ ($last_page ? number_format($invoice->with_holding_tax_3,2) : '') }}</div></td>
                     </tr>
                     <tr>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                        <td><div style="color:#002060; font-size: 22px; line-height: 60%;" align="right"><b>Tatal Invoiced THB</b></div></td>
+                        <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>Tatal Invoiced THB</b></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right">{{ ($last_page ? number_format($invoice->total_invioced_thb,2) : '') }}</div></td>
                     </tr>
                     <tr>
@@ -292,7 +292,7 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <div style="color:#002060; font-size: 22px; line-height: 60%;" align="left">
+                            <div style="color:#002060; font-size: 20px; line-height: 60%;" align="left">
                                 <b>AMOUNT :</b> <span style="color:#002060; font-size: 20px; line-height: 60%;">{{ ($last_page ? $invoice->amount : '') }}</span>
                             </div>
                         </td>

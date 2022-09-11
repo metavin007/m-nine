@@ -145,6 +145,14 @@
                     footer: true,
                     title: 'ราคาทุน,ราคาจ่าย และกำไรของบริษัท',
                     messageTop: 'วันที่เริ่มต้น : ' + $('#date_search_start').val() + '     ' + 'วันที่สิ้นสุด : ' + $('#date_search_end').val(),
+                },
+                {
+                    extend: 'excel',
+                    className: 'btn btn-primary',
+                    text: 'Export Excel',
+                    footer: true,
+                    title: 'ราคาทุน,ราคาจ่าย และกำไรของบริษัท',
+                    messageTop: false,
                 }
             ],
 //            paging: false,

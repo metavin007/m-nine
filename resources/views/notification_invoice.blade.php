@@ -140,6 +140,14 @@
                     footer: true,
                     title: 'Invoice ค้างจ่าย',
                     messageTop: 'วันที่เริ่มต้น : ' + $('#date_search_start').val() + '     ' + 'วันที่สิ้นสุด : ' + $('#date_search_end').val(),
+                },
+                {
+                    extend: 'excel',
+                    className: 'btn btn-primary',
+                    text: 'Export Excel',
+                    footer: true,
+                    title: 'Invoice ค้างจ่าย',
+                    messageTop: false,
                 }
             ],
 //            paging: false,

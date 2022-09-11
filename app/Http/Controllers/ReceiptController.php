@@ -35,6 +35,7 @@ class ReceiptController extends Controller {
                             $str = '
                           <a href="' . url('/receipt/export_for_pdf/' . $rec->id) . '" class="btn btn-info" target="_blank">ต้นฉบับ</a>
                           <button type="button" class="btn btn-delete btn-danger" data-id="' . $rec->id . '" data-name="' . $rec->receipt_no . '">Delete</button>
+                          <button type="button" class="btn btn-edit_date btn-warning" data-id="' . $rec->id . '">แก้ไขวันที่</button>    
                             ';
 //                        <a href="' . url('/receipt/export_for_pdf/' . $rec->id . '/1') . '" class="btn btn-info" target="_blank">สำเนา</a> 
                             return $str;
@@ -172,6 +173,49 @@ class ReceiptController extends Controller {
             $pdf = PDF::loadView('pdf.pdf_receipt_body', $data);
         }
         return $pdf->stream($data['receipt']->receipt_no . '.pdf', $data);
+    }
+
+    public function get_date_by_receipt_id($id) {
+        $result = Receipt::where('id', $id)->selectRaw(\DB::raw('DATE_FORMAT(date_add, "%d-%m-%Y") as date_add'))->first();
+        return json_encode($result);
+    }
+
+    public function update_date_by_receipt_id(Request $request, $id) {
+
+        $date_add = $request->input('date_add');
+
+        $validator = Validator::make($request->all(), [
+                    'date_add' => 'required',
+        ]);
+
+        if (isset($date_add)) {
+            $date_add = date('Y-m-d', strtotime($date_add));
+        }
+
+        $return['title'] = 'แก้ไขข้อมูล';
+
+        if ($validator->fails()) {
+            $return['status'] = 0;
+            $return['content'] = $validator->errors()->first();
+            return $return;
+        }
+
+        \DB::beginTransaction();
+
+        try {
+
+            Receipt::where('id', $id)->update(['date_add' => $date_add]);
+
+            \DB::commit();
+            $return['status'] = 1;
+            $return['content'] = 'สำเร็จ';
+        } catch (Exception $e) {
+            \DB::rollBack();
+            $return['status'] = 0;
+            $return['content'] = 'ติด Validation : ' . json_encode($validator->failed());
+        }
+
+        return $return;
     }
 
 }

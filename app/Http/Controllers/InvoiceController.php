@@ -41,7 +41,8 @@ class InvoiceController extends Controller {
                         ->addColumn('action', function($rec) {
                             $str = '
                           <a href="' . url('/invoice/export_for_pdf/' . $rec->id) . '" class="btn btn-info" target="_blank">ต้นฉบับ</a>                   
-                          <a href="' . url('/invoice/pade_edit/' . $rec->id) . '" class="btn btn-edit btn-warning">Edit</a>    
+                          <a href="' . url('/invoice/pade_edit/' . $rec->id) . '" class="btn btn-edit btn-warning">Edit</a>
+                          <button type="button" class="btn btn-edit_date btn-warning" data-id="' . $rec->id . '">แก้ไขวันที่</button>    
                             ';
 //                            <a href="' . url('/invoice/export_for_pdf/' . $rec->id . '/1') . '" class="btn btn-info" target="_blank">สำเนา</a>
                             return $str;
@@ -235,6 +236,49 @@ class InvoiceController extends Controller {
             $pdf = PDF::loadView('pdf.pdf_invoice_body', $data);
         }
         return $pdf->stream($data['invoice']->invoice_number . '.pdf', $data);
+    }
+
+    public function get_date_by_invoice_id($id) {
+        $result = Invoice::where('id', $id)->selectRaw(\DB::raw('DATE_FORMAT(invoice_date, "%d-%m-%Y") as invoice_date'))->first();
+        return json_encode($result);
+    }
+
+    public function update_date_by_invoice_id(Request $request, $id) {
+
+        $invoice_date = $request->input('invoice_date');
+
+        $validator = Validator::make($request->all(), [
+                    'invoice_date' => 'required',
+        ]);
+
+        if (isset($invoice_date)) {
+            $invoice_date = date('Y-m-d', strtotime($invoice_date));
+        }
+
+        $return['title'] = 'แก้ไขข้อมูล';
+
+        if ($validator->fails()) {
+            $return['status'] = 0;
+            $return['content'] = $validator->errors()->first();
+            return $return;
+        }
+
+        \DB::beginTransaction();
+
+        try {
+
+            Invoice::where('id', $id)->update(['invoice_date' => $invoice_date]);
+
+            \DB::commit();
+            $return['status'] = 1;
+            $return['content'] = 'สำเร็จ';
+        } catch (Exception $e) {
+            \DB::rollBack();
+            $return['status'] = 0;
+            $return['content'] = 'ติด Validation : ' . json_encode($validator->failed());
+        }
+
+        return $return;
     }
 
 }

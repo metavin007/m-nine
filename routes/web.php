@@ -68,6 +68,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('invoice/pade_edit/{id}', [App\Http\Controllers\InvoiceController::class, 'pade_edit']);
     Route::put('invoice/update/{id}', [App\Http\Controllers\InvoiceController::class, 'update']);
     Route::get('invoice/export_for_pdf/{id}/{copy?}', [App\Http\Controllers\InvoiceController::class, 'export_for_pdf']);
+    Route::get('invoice/get_date_by_invoice_id/{id}', [App\Http\Controllers\InvoiceController::class, 'get_date_by_invoice_id']);
+    Route::put('invoice/update_date_by_invoice_id/{id}', [App\Http\Controllers\InvoiceController::class, 'update_date_by_invoice_id']);
 
     Route::get('receipt', [App\Http\Controllers\ReceiptController::class, 'index'])->name('receipt');
     Route::get('receipt/get_datatable', [App\Http\Controllers\ReceiptController::class, 'get_datatable']);
@@ -76,6 +78,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('receipt/insert', [App\Http\Controllers\ReceiptController::class, 'insert']);
     Route::delete('receipt/delete/{id}', [App\Http\Controllers\ReceiptController::class, 'delete']);
     Route::get('receipt/export_for_pdf/{id}/{copy?}', [App\Http\Controllers\ReceiptController::class, 'export_for_pdf']);
+    Route::get('receipt/get_date_by_receipt_id/{id}', [App\Http\Controllers\ReceiptController::class, 'get_date_by_receipt_id']);
+    Route::put('receipt/update_date_by_receipt_id/{id}', [App\Http\Controllers\ReceiptController::class, 'update_date_by_receipt_id']);
+    
 });
 
 Route::get('/testlot', function () {

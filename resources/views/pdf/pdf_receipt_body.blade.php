@@ -83,10 +83,10 @@
 
         <table>      
             <tr>
-                <td style="font-size: 26px; color:#0a42f6; text-align: center;"><b>ต้นฉบับ ใบเสร็จรับเงิน / ใบกำกับภาษี</b></td>
+                <td style="font-size: 22px; color:#0a42f6; text-align: center;"><b>ต้นฉบับ ใบเสร็จรับเงิน / ใบกำกับภาษี</b></td>
             </tr>
             <tr>
-                <td style="font-size: 22px; color:#0a42f6; text-align: center; line-height: 30%;"><b>OFFICIAL RECEIPT / TAX INVOICE  ORIGINAL</b></td>
+                <td style="font-size: 20px; color:#0a42f6; text-align: center; line-height: 30%;"><b>OFFICIAL RECEIPT / TAX INVOICE  ORIGINAL</b></td>
             </tr>
         </table>
 
@@ -97,7 +97,7 @@
                 <td style="width: 120px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b></b></div></td>
                 <td style="width: 10px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b></b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                <td style="width: 100px;"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Page No</b></div></td>
+                <td style="width: 100px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Page No</b></div></td>
                 <td style="width: 10px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td style="width: 180px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><span class="page-number"></span></div></td>
             </tr>
@@ -105,7 +105,7 @@
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Vat rate 7.00%</b></div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"><b></b></div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"></div></td>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Receipt No.</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Receipt No.</b></div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $receipt->receipt_no }}</div></td>
             </tr>
@@ -113,20 +113,20 @@
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"><b></b></div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"><b></b></div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"></div></td>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Date / วันที่</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Date / วันที่</b></div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ date('d/m/Y', strtotime($receipt->date_add)) }}</div></td>
             </tr>
             <tr>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>ได้รับเงินจาก</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>ได้รับเงินจาก</b></div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $receipt->customer->company_name_thai }}</div></td>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Tax ID No.</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Tax ID No.</b></div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $receipt->customer->tax_id_no . ' ' . $receipt->customer->branch }}</div></td>
             </tr>
             <tr>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Received from</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Received from</b></div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $receipt->customer->company_name_eng }}</div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"><b></b></div></td>
@@ -134,7 +134,7 @@
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"></div></td>
             </tr>
             <tr>
-                <td><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Address</b></div></td>
+                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Address</b></div></td>
                 <td><div style="color:#002060; font-size: 18px; line-height: 60%;"><b>:</b></div></td>
                 <td colspan="4"><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $receipt->customer->address_thai }}</div></td>
             </tr>
@@ -160,6 +160,8 @@
                 <td align="center"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>AUTHORIZED SIGNATURE</b></div></td>
             </tr>
         </table>
+        
+        <br/>
 
         <table>  
             <tr>
@@ -195,9 +197,9 @@
                 <div style="margin-top: 260px;"></div>
                 <table style="margin-top: 10px; width: 100%; border: 1px solid; border-collapse: collapse; border-left: none; border-bottom: none;">  
                     <tr>
-                        <td style="width: 300px; border: 1px solid;" colspan="2"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Received for Invoice No. / ได้รับเงินตามใบแจ้งหนี้เลขที่</b></div></td>
-                        <td style="width: 150px; border: 1px solid;" align="center"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Amount<br/>Non Vat</b></div></td>
-                        <td style="width: 150px; border: 1px solid;" align="center"><div style="color:#002060; font-size: 22px; line-height: 60%;"><b>Amount<br/>Vat 7%</b></div></td>
+                        <td style="width: 300px; border: 1px solid;" colspan="2"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Received for Invoice No. / ได้รับเงินตามใบแจ้งหนี้เลขที่</b></div></td>
+                        <td style="width: 150px; border: 1px solid;" align="center"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Amount<br/>Non Vat</b></div></td>
+                        <td style="width: 150px; border: 1px solid;" align="center"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Amount<br/>Vat 7%</b></div></td>
                     </tr>
                     @foreach($receipt_details as $receipt_detail)
                     <tr>
@@ -207,25 +209,25 @@
                     </tr>
                     @endforeach
                     <tr>
-                        <td style="border-top: 1px solid;"><div style="color:#002060; font-size: 18px; line-height: 60%;"><b>{{ 'บาท Baht' . ' (' . ($last_page ? convert_to_thai($receipt->net) : '') . ')' }}</b></div></td>
-                        <td style="border-top: 1px solid;"><div style="color:#002060; font-size: 22px; line-height: 60%;" align="left"><b>รวมเงิน</b></div></td>
-                        <td style="border: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_amount_non_vat,2) : '') }}</b></div></td>
-                        <td style="border: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_amount_vat,2) : '') }}</b></div></td>
+                        <td style="border-top: 1px solid;"><div style="color:#002060; font-size: 18px; line-height: 100%;"><b>{{ 'บาท Baht' . ' (' . ($last_page ? convert_to_thai($receipt->net) : '') . ')' }}</b></div></td>
+                        <td style="border-top: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="left"><b>รวมเงิน</b></div></td>
+                        <td style="border: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_amount_non_vat,2) : '') }}</b></div></td>
+                        <td style="border: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_amount_vat,2) : '') }}</b></div></td>
                     </tr>
                     <tr>
-                        <td ><div style="color:#002060; font-size: 18px; line-height: 60%;"><b></b></div></td>
-                        <td colspan="2"><div style="color:#002060; font-size: 22px; line-height: 60%;" align="left"><b>VAT 7%</b></div></td>
-                        <td style="border: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_vat_7,2) : '') }}</b></div></td>
+                        <td ><div style="color:#002060; font-size: 18px; line-height: 100%;"><b></b></div></td>
+                        <td colspan="2"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="left"><b>VAT 7%</b></div></td>
+                        <td style="border: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_vat_7,2) : '') }}</b></div></td>
                     </tr>
                     <tr>
-                        <td ><div style="color:#002060; font-size: 18px; line-height: 60%;"><b></b></div></td>
-                        <td colspan="2"><div style="color:#002060; font-size: 22px; line-height: 60%;" align="left"><b>With Holding Tax {{ $mycompany->with_holding_tax }} %</b></div></td>
-                        <td style="border: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_holding_vat_3,2) : '') }}</b></div></td>
+                        <td ><div style="color:#002060; font-size: 18px; line-height: 100%;"><b></b></div></td>
+                        <td colspan="2"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="left"><b>With Holding Tax {{ $mycompany->with_holding_tax }} %</b></div></td>
+                        <td style="border: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_holding_vat_3,2) : '') }}</b></div></td>
                     </tr>
                     <tr>
-                        <td ><div style="color:#002060; font-size: 18px; line-height: 60%;"><b></b></div></td>
-                        <td colspan="2"><div style="color:#002060; font-size: 22px; line-height: 60%;" align="left"><b>จำนวนเงินรวมทั้งสิ้น</b></div></td>
-                        <td style="border: 1px solid; border-bottom: 3px;"><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>{{ ($last_page ? number_format($receipt->net,2) : '') }}</div></td>
+                        <td ><div style="color:#002060; font-size: 18px; line-height: 100%;"><b></b></div></td>
+                        <td colspan="2"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="left"><b>จำนวนเงินรวมทั้งสิ้น</b></div></td>
+                        <td style="border: 1px solid; border-bottom: 3px;"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="right"><b>{{ ($last_page ? number_format($receipt->net,2) : '') }}</div></td>
                     </tr>
                 </table>
 
