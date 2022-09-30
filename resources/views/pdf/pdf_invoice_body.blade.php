@@ -278,7 +278,7 @@
                     <tr>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                        <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>With Holding Tax {{ $invoice->with_holding_tax }} %</b></div></td>
+                        <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>With Holding Tax {{ $mycompany->with_holding_tax }} %</b></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right">{{ ($last_page ? number_format($invoice->with_holding_tax_3,2) : '') }}</div></td>
                     </tr>
                     <tr>

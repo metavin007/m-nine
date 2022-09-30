@@ -34,10 +34,10 @@ class ReceiptController extends Controller {
                         ->addColumn('action', function($rec) {
                             $str = '
                           <a href="' . url('/receipt/export_for_pdf/' . $rec->id) . '" class="btn btn-info" target="_blank">ต้นฉบับ</a>
+                          <a href="' . url('/receipt/export_for_pdf/' . $rec->id . '/1') . '" class="btn btn-info" target="_blank">สำเนา</a>    
                           <button type="button" class="btn btn-delete btn-danger" data-id="' . $rec->id . '" data-name="' . $rec->receipt_no . '">Delete</button>
                           <button type="button" class="btn btn-edit_date btn-warning" data-id="' . $rec->id . '">แก้ไขวันที่</button>    
                             ';
-//                        <a href="' . url('/receipt/export_for_pdf/' . $rec->id . '/1') . '" class="btn btn-info" target="_blank">สำเนา</a> 
                             return $str;
                         })->make(true);
     }

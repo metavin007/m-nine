@@ -40,11 +40,11 @@ class InvoiceController extends Controller {
                         })
                         ->addColumn('action', function($rec) {
                             $str = '
-                          <a href="' . url('/invoice/export_for_pdf/' . $rec->id) . '" class="btn btn-info" target="_blank">ต้นฉบับ</a>                   
+                          <a href="' . url('/invoice/export_for_pdf/' . $rec->id) . '" class="btn btn-info" target="_blank">ต้นฉบับ</a>
+                          <a href="' . url('/invoice/export_for_pdf/' . $rec->id . '/1') . '" class="btn btn-info" target="_blank">สำเนา</a>    
                           <a href="' . url('/invoice/pade_edit/' . $rec->id) . '" class="btn btn-edit btn-warning">Edit</a>
                           <button type="button" class="btn btn-edit_date btn-warning" data-id="' . $rec->id . '">แก้ไขวันที่</button>    
                             ';
-//                            <a href="' . url('/invoice/export_for_pdf/' . $rec->id . '/1') . '" class="btn btn-info" target="_blank">สำเนา</a>
                             return $str;
                         })->make(true);
     }
