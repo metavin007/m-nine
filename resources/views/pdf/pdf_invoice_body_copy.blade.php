@@ -158,7 +158,7 @@
             </tr>
             <tr>
                 <td style="width: 160px;"><div style="color:#000000; font-size: 20px; line-height: 60%;"><b>Marks and Numbers</b></div></td>
-                <td style="width: 160px;"><div style="color:#000000; font-size: 20px; line-height: 60%;"><b>Description of Goods</b></div></td>
+                <td style="width: 180px;"><div style="color:#000000; font-size: 20px; line-height: 60%;"><b>Description of Goods</b></div></td>
                 <td style="width: 160px;"><div style="color:#000000; font-size: 20px; line-height: 60%;"><b>No.of Packages</b></div></td>
                 <td style="width: 160px;"><div style="color:#000000; font-size: 20px; line-height: 60%;"><b>ACT Weight</b></div></td>
                 <td style="width: 160px;"><div style="color:#000000; font-size: 20px; line-height: 60%;"><b>Volume</b></div></td>
