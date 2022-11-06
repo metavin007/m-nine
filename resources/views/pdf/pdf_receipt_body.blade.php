@@ -209,7 +209,7 @@
                     </tr>
                     @endforeach
                     <tr>
-                        <td style="border-top: 1px solid;"><div style="color:#002060; font-size: 18px; line-height: 100%;"><b>{{ 'บาท Baht' . ' (' . ($last_page ? convert_to_thai($receipt->net) : '') . ')' }}</b></div></td>
+                        <td style="border-top: 1px solid;"><div style="color:#002060; font-size: 18px; line-height: 100%;"><b>{{ 'บาท Baht' . ' (' . ($last_page ? convert_to_thai(number_format($receipt->net, 2, '.', '')) : '') . ')' }}</b></div></td>
                         <td style="border-top: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="left"><b>รวมเงิน</b></div></td>
                         <td style="border: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_amount_non_vat,2) : '') }}</b></div></td>
                         <td style="border: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 100%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_amount_vat,2) : '') }}</b></div></td>
