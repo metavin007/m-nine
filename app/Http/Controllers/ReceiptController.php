@@ -82,7 +82,7 @@ class ReceiptController extends Controller {
             $input_all['payment_type'] = 'เช็คธนาคาร CHQUE BANK';
         }
         if ($input_all['payment_type'] == 'tranfer') {
-            $input_all['payment_type'] = 'โอนเงินเข้าบัญชี้';
+            $input_all['payment_type'] = 'โอนเงินเข้าบัญชี';
         }
 
         unset($input_all['select_item']);

@@ -204,7 +204,7 @@
                                                     <input id="tranfer" name="payment_type" onclick="check_typepayment();" type="radio"  value="tranfer" style="width: 20px; height: 20px;"> 
                                                 </div>
                                                 <div class="col-lg-4 col-4">
-                                                    <label class="col-form-label">โอนเงินเข้าบัญชี้ : </label>
+                                                    <label class="col-form-label">โอนเงินเข้าบัญชี : </label>
                                                 </div>
                                                 <div class="col-lg-1 col-1">
                                                     <label class="col-form-label">ธนาคาร : </label>

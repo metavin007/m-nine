@@ -255,7 +255,7 @@
                 </table>
                 @endif
 
-                @if($last_page && $receipt->payment_type == 'โอนเงินเข้าบัญชี้')
+                @if($last_page && ($receipt->payment_type == 'โอนเงินเข้าบัญชี้' || $receipt->payment_type == 'โอนเงินเข้าบัญชี'))
                 <table>      
                     <tr>
                         <td style="font-size: 20px; color:#002060; text-align: left;"><b>{{ ' - ' . $receipt->payment_type . ' ธนาคาร ' . $receipt->bank_name . " สาขา " . $receipt->bank_branch }}</b></td>

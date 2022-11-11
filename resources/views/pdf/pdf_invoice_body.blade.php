@@ -91,9 +91,9 @@
                 <td style="width: 100px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Customer</b></div></td>
                 <td style="width: 10px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
-                <td style="width: 200px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Page No</b></div></td>
+                <td style="width: 180px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Page No</b></div></td>
                 <td style="width: 10px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
-                <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><span class="page-number"></span></div></td>
+                <td style="width: 150px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><span class="page-number"></span></div></td>
             </tr>
             <tr>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Tax ID No.</b></div></td>
