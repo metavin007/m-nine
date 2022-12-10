@@ -104,7 +104,7 @@
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ $invoice->invoice_number }}</div></td>
             </tr>
             <tr>
-                <td colspan="3" rowspan="4"><div style="color:#002060; font-size: 20px; line-height: 60%;">{!! $invoice->customer->company_name_eng . '<br/>' . $invoice->customer->address_eng !!}</div></td>
+                <td colspan="3" rowspan="4"><div style="color:#002060; font-size: 20px; line-height: 60%;">{!! $invoice->customer->company_name_eng . '<br/>' . nl2br($invoice->customer->address_eng) !!}</div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>INVOICE DATE</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;">{{ date('d/m/Y', strtotime($invoice->invoice_date)) }}</div></td>
