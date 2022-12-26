@@ -1,38 +1,38 @@
 <style>
     @page { margin: 100px 25px; }
-    header { 
-        position: fixed; 
-        top: -60px; 
-        left: 0px; 
-        right: 0px; 
+    header {
+        position: fixed;
+        top: -60px;
+        left: 0px;
+        right: 0px;
         height: 50px;
     }
     .pagenum:before {
         content: counter(page) ' / ' counter(pages);
     }
-    .pageNumbers:before { 
+    .pageNumbers:before {
         counter-reset: pageTotal;
     }
-    footer { 
-        position: fixed; 
-        bottom: 0px; 
-        left: 0px; 
-        right: 0px; 
-        height: 50px; 
+    footer {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        height: 50px;
     }
 
-    table, th, td { 
-        width:100%; 
+    table, th, td {
+        width:100%;
     }
     br{
         margin-top: -50px;
     }
     #pageCounter span {
-        counter-increment: pageTotal; 
+        counter-increment: pageTotal;
     }
-    .page-number:before { 
-        counter-increment: currentPage; 
-        content: counter(page) ' / ' counter(pageTotal); 
+    .page-number:before {
+        counter-increment: currentPage;
+        content: counter(page) ' / ' counter(pageTotal);
     }
 </style>
 
@@ -81,7 +81,7 @@
 
         <div style="margin-top: -90px;"></div>
 
-        <table>      
+        <table>
             <tr>
                 <td style="font-size: 22px; color:#000000; text-align: center;"><b>สำเนา ใบเสร็จรับเงิน / ใบกำกับภาษี</b></td>
             </tr>
@@ -92,7 +92,7 @@
 
         <div style="margin-top: 10px;"></div>
 
-        <table>      
+        <table>
             <tr>
                 <td style="width: 120px;"><div style="color:#000000; font-size: 20px; line-height: 60%;"><b></b></div></td>
                 <td style="width: 10px;"><div style="color:#000000; font-size: 20px; line-height: 60%;"><b></b></div></td>
@@ -143,7 +143,7 @@
     </header>
 
     <footer>
-        <table>  
+        <table>
             <tr>
                 <td><div style="color:#000000; font-size: 20px; line-height: 60%; border-bottom: 1px solid;"><b></b></div></td>
                 <td><div style="color:#000000; font-size: 20px; line-height: 60%; border-bottom: 1px solid;"><b></b></div></td>
@@ -163,14 +163,14 @@
 
         <br/>
 
-        <table>  
+        <table>
             <tr>
                 <td style="width: 50px;"><div style="color:#000000; font-size: 16px; line-height: 60%;"><u>คำเตือน</u></div></td>
                 <td><div style="color:#000000; font-size: 16px; line-height: 60%;">กรุณาตรวจสอบความถูกต้องของเอกสารที่ได้รับ หากมีการแก้ไข ขอให้แจ้งบริษัทฯ ทันที ภายใน 7 วัน มิฉะนั้น บริษัทฯ จะถือว่าเอกสารฉบับนี้สมบูรณ์แล้ว</div></td>
             </tr>
         </table>
 
-        <table> 
+        <table>
             <tr>
                 <td colspan="2"><div style="color:#000000; font-size: 12px; line-height: 60%;">ถ้าชำระเงินด้วยเช็ค ใบเสร็จรับเงินฉบับนี้จะสมบูรณ์ต่อเมื่อขึ้นเงินตามเช็คได้แล้ว / if payment is made by cheque,this receipt will not be valid until the cheque is honoured by the bank.</div></td>
             </tr>
@@ -195,7 +195,7 @@
                         ->get();
                 ?>
                 <div style="margin-top: 260px;"></div>
-                <table style="margin-top: 10px; width: 100%; border: 1px solid; border-collapse: collapse; border-left: none; border-bottom: none;">  
+                <table style="margin-top: 10px; width: 100%; border: 1px solid; border-collapse: collapse; border-left: none; border-bottom: none;">
                     <tr>
                         <td style="width: 300px; border: 1px solid;" colspan="2"><div style="color:#000000; font-size: 20px; line-height: 60%;"><b>Received for Invoice No. / ได้รับเงินตามใบแจ้งหนี้เลขที่</b></div></td>
                         <td style="width: 150px; border: 1px solid;" align="center"><div style="color:#000000; font-size: 20px; line-height: 60%;"><b>Amount<br/>Non Vat</b></div></td>
@@ -219,11 +219,13 @@
                         <td colspan="2"><div style="color:#000000; font-size: 20px; line-height: 100%;" align="left"><b>VAT 7%</b></div></td>
                         <td style="border: 1px solid;"><div style="color:#000000; font-size: 20px; line-height: 100%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_vat_7,2) : '') }}</b></div></td>
                     </tr>
+                    @if($receipt->sum_holding_vat_3 > 0)
                     <tr>
                         <td ><div style="color:#000000; font-size: 18px; line-height: 100%;"><b></b></div></td>
                         <td colspan="2"><div style="color:#000000; font-size: 20px; line-height: 100%;" align="left"><b>With Holding Tax {{ $mycompany->with_holding_tax }} %</b></div></td>
                         <td style="border: 1px solid;"><div style="color:#000000; font-size: 20px; line-height: 100%;" align="right"><b>{{ ($last_page ? number_format($receipt->sum_holding_vat_3,2) : '') }}</b></div></td>
                     </tr>
+                    @endif
                     <tr>
                         <td ><div style="color:#000000; font-size: 18px; line-height: 100%;"><b></b></div></td>
                         <td colspan="2"><div style="color:#000000; font-size: 20px; line-height: 100%;" align="left"><b>จำนวนเงินรวมทั้งสิ้น</b></div></td>
@@ -232,7 +234,7 @@
                 </table>
 
                 @if($last_page)
-                <table>      
+                <table>
                     <tr>
                         <td style="font-size: 20px; color:#000000; text-align: left;"><b>ได้รับเงินแล้ว</b></td>
                     </tr>
@@ -240,7 +242,7 @@
                 @endif
 
                 @if($last_page && $receipt->payment_type == 'เงินสด Cash')
-                <table>      
+                <table>
                     <tr>
                         <td style="font-size: 20px; color:#000000; text-align: left;"><b>{{ ' - ' . $receipt->payment_type }}</b></td>
                     </tr>
@@ -248,7 +250,7 @@
                 @endif
 
                 @if($last_page && $receipt->payment_type == 'เช็คธนาคาร CHQUE BANK')
-                <table>      
+                <table>
                     <tr>
                         <td style="font-size: 20px; color:#000000; text-align: left;"><b>{{ ' - ' . $receipt->payment_type . ' NO. ' . $receipt->check_no . ' Date ' . $receipt->check_date }}</b></td>
                     </tr>
@@ -256,7 +258,7 @@
                 @endif
 
                 @if($last_page && ($receipt->payment_type == 'โอนเงินเข้าบัญชี้' || $receipt->payment_type == 'โอนเงินเข้าบัญชี'))
-                <table>      
+                <table>
                     <tr>
                         <td style="font-size: 20px; color:#000000; text-align: left;"><b>{{ ' - ' . $receipt->payment_type . ' ธนาคาร ' . $receipt->bank_name . " สาขา " . $receipt->bank_branch }}</b></td>
                     </tr>

@@ -1,38 +1,38 @@
 <style>
     @page { margin: 100px 25px; }
-    header { 
-        position: fixed; 
-        top: -60px; 
-        left: 0px; 
-        right: 0px; 
+    header {
+        position: fixed;
+        top: -60px;
+        left: 0px;
+        right: 0px;
         height: 50px;
     }
     .pagenum:before {
         content: counter(page) ' / ' counter(pages);
     }
-    .pageNumbers:before { 
+    .pageNumbers:before {
         counter-reset: pageTotal;
     }
-    footer { 
-        position: fixed; 
-        bottom: 0px; 
-        left: 0px; 
-        right: 0px; 
-        height: 50px; 
+    footer {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        height: 50px;
     }
 
-    table, th, td { 
-        width:100%; 
+    table, th, td {
+        width:100%;
     }
     br{
         margin-top: -50px;
     }
     #pageCounter span {
-        counter-increment: pageTotal; 
+        counter-increment: pageTotal;
     }
-    .page-number:before { 
-        counter-increment: currentPage; 
-        content: counter(page) ' / ' counter(pageTotal); 
+    .page-number:before {
+        counter-increment: currentPage;
+        content: counter(page) ' / ' counter(pageTotal);
     }
 </style>
 
@@ -80,13 +80,13 @@
 
         <div style="margin-top: -90px;"></div>
 
-        <table>      
+        <table>
             <tr>
                 <td style="font-size: 22px; color:#0a42f6; text-align: center;"><b>ใบแจ้งหนี้ / INVOICE</b></td>
             </tr>
         </table>
 
-        <table>      
+        <table>
             <tr>
                 <td style="width: 100px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>Customer</b></div></td>
                 <td style="width: 10px;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>:</b></div></td>
@@ -152,7 +152,7 @@
             </tr>
         </table>
 
-        <table> 
+        <table>
             <tr>
                 <td colspan="5"><div style="color:white; font-size: 20px; line-height: 60%;"><b>text</b></div></td>
             </tr>
@@ -181,7 +181,7 @@
     </header>
 
     <footer>
-        <table>  
+        <table>
             <tr>
                 <td colspan="2"><div style="color:#002060; font-size: 20px; line-height: 60%; border-bottom: 1px solid;"><b></b></div></td>
                 <td><div style="color:#002060; font-size: 20px; line-height: 60%;"><b></b></div></td>
@@ -196,7 +196,7 @@
             </tr>
         </table>
         <br/>
-        <table>  
+        <table>
             <tr>
                 <td><div style="color:#002060; font-size: 16px; line-height: 60%;">* Please issue a crossed Cheque "A/C Payee Only" to " M-NINE (THAILAND) Limited."</div></td>
             </tr>
@@ -227,7 +227,7 @@
                         ->get();
                 ?>
                 <div style="margin-top: 380px;"></div>
-                <table style="margin-top: 10px; border: 1px solid; border-collapse: collapse; border-left: none; border-right: none; border-bottom: none;">  
+                <table style="margin-top: 10px; border: 1px solid; border-collapse: collapse; border-left: none; border-right: none; border-bottom: none;">
                     <tr>
                         <td style="width: 100px; border-bottom: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>CODE</b></div></td>
                         <td style="width: 250px; border-bottom: 1px solid;"><div style="color:#002060; font-size: 20px; line-height: 60%;"><b>PARTICULARS</b></div></td>
@@ -275,12 +275,14 @@
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>Grand Total</b></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right">{{ ($last_page ? number_format($invoice->grand_total,2) : '') }}</div></td>
                     </tr>
+                    @if($invoice->with_holding_tax_3 > 0)
                     <tr>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right"><b>With Holding Tax {{ $mycompany->with_holding_tax }} %</b></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;" align="right">{{ ($last_page ? number_format($invoice->with_holding_tax_3,2) : '') }}</div></td>
                     </tr>
+                    @endif
                     <tr>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
                         <td><div style="color:#002060; font-size: 20px; line-height: 60%;"></div></td>
