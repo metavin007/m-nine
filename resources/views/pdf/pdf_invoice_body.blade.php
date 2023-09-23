@@ -198,7 +198,7 @@
         <br/>
         <table>
             <tr>
-                <td><div style="color:#002060; font-size: 16px; line-height: 60%;">* Please issue a crossed Cheque "A/C Payee Only" to " M-NINE (THAILAND) Limited."</div></td>
+                <td><div style="color:#002060; font-size: 16px; line-height: 60%;">* Please issue a crossed Cheque "A/C Payee Only" to " M-NINE (THAILAND) LIMITED."</div></td>
             </tr>
             <tr>
                 <td><div style="color:#002060; font-size: 16px; line-height: 60%;">* If you have any queries on the items mentioned herein, please notify within 7 days</div></td>

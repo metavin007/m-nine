@@ -175,7 +175,7 @@
                 <td colspan="2"><div style="color:#002060; font-size: 12px; line-height: 60%;">ถ้าชำระเงินด้วยเช็ค ใบเสร็จรับเงินฉบับนี้จะสมบูรณ์ต่อเมื่อขึ้นเงินตามเช็คได้แล้ว / if payment is made by cheque,this receipt will not be valid until the cheque is honoured by the bank.</div></td>
             </tr>
             <tr>
-                <td colspan="2"><div style="color:#002060; font-size: 12px; line-height: 60%;">โปรดชำระด้วยเช็คขีดคร่อมสั่งจ่าย บริษัท เอ็ม-ไนน์ (ประเทศไทย) จำกัด/ Please made a Crossed cheque payable to M-NINE (THAILAND) Limited</div></td>
+                <td colspan="2"><div style="color:#002060; font-size: 12px; line-height: 60%;">โปรดชำระด้วยเช็คขีดคร่อมสั่งจ่าย บริษัท เอ็ม-ไนน์ (ประเทศไทย) จำกัด/ Please made a Crossed cheque payable to M-NINE (THAILAND) LIMITED</div></td>
             </tr>
         </table>
     </footer>
