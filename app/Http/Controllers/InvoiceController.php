@@ -15,41 +15,45 @@ use App\Models\CustomerMainDealer;
 use App\Models\CustomerMainPrice;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class InvoiceController extends Controller {
+class InvoiceController extends Controller
+{
 
-    public function index() {
+    public function index()
+    {
         return view('invoice');
     }
 
-    public function get_datatable() {
+    public function get_datatable()
+    {
         $result = Invoice::select();
         return \DataTables::of($result)
-                        ->addIndexColumn()
-                        ->editColumn('invoice_date', function($rec) {
-                            return date_format_system($rec->invoice_date);
-                        })
-                        ->editColumn('date_update', function($rec) {
-                            return date_format_system($rec->date_update);
-                        })
-                        ->editColumn('status', function($rec) {
-                            if ($rec->status == 1) {
-                                return 'จ่ายแล้ว';
-                            } else {
-                                return 'ค้างจ่าย';
-                            }
-                        })
-                        ->addColumn('action', function($rec) {
-                            $str = '
+            ->addIndexColumn()
+            ->editColumn('invoice_date', function ($rec) {
+                return date_format_system($rec->invoice_date);
+            })
+            ->editColumn('date_update', function ($rec) {
+                return date_format_system($rec->date_update);
+            })
+            ->editColumn('status', function ($rec) {
+                if ($rec->status == 1) {
+                    return 'จ่ายแล้ว';
+                } else {
+                    return 'ค้างจ่าย';
+                }
+            })
+            ->addColumn('action', function ($rec) {
+                $str = '
                           <a href="' . url('/invoice/export_for_pdf/' . $rec->id) . '" class="btn btn-info" target="_blank">ต้นฉบับ</a>
-                          <a href="' . url('/invoice/export_for_pdf/' . $rec->id . '/1') . '" class="btn btn-info" target="_blank">สำเนา</a>    
+                          <a href="' . url('/invoice/export_for_pdf/' . $rec->id . '/1') . '" class="btn btn-info" target="_blank">สำเนา</a>
                           <a href="' . url('/invoice/pade_edit/' . $rec->id) . '" class="btn btn-edit btn-warning">Edit</a>
-                          <button type="button" class="btn btn-edit_date btn-warning" data-id="' . $rec->id . '">แก้ไขวันที่</button>    
+                          <button type="button" class="btn btn-edit_date btn-warning" data-id="' . $rec->id . '">แก้ไขวันที่</button>
                             ';
-                            return $str;
-                        })->make(true);
+                return $str;
+            })->make(true);
     }
 
-    public function page_add() {
+    public function page_add()
+    {
         $data['mycompany'] = Mycompany::first();
         $data['customers'] = Customer::orderBy('company_name_eng', 'asc')->get();
         $data['items'] = Item::orderBy('code', 'asc')->get();
@@ -63,20 +67,23 @@ class InvoiceController extends Controller {
         return view('add_invoice', $data);
     }
 
-    public function get_data_by_customer_id($customer_id) {
+    public function get_data_by_customer_id($customer_id)
+    {
         $result['customer'] = Customer::where('id', $customer_id)->first();
         $result['dealers'] = CustomerMainDealer::with('dealer')->where('customer_id', $customer_id)->get();
         $result['items'] = CustomerMainPrice::with('item')->where('customer_id', $customer_id)->get();
         return json_encode($result);
     }
 
-    public function chang_pice_to_text($price) {
+    public function chang_pice_to_text($price)
+    {
         $price = str_replace(',', '', number_format($price, 2));
         $result['text'] = bahtEng($price);
         return json_encode($result);
     }
 
-    public function insert(Request $request) {
+    public function insert(Request $request)
+    {
 
         $input_all = $request->all();
 
@@ -100,12 +107,12 @@ class InvoiceController extends Controller {
         $select_items = $request->input('select_item');
 
         $validator = Validator::make($request->all(), [
-                    'customer_id' => 'required',
-                    'dealer_id' => 'required',
-                    'our_reference_number' => 'required',
-                    'vessel_date' => 'required',
-                    'mark_and_numbers1' => 'required',
-                    'costs' => 'required',
+            'customer_id' => 'required',
+            'dealer_id' => 'required',
+            'our_reference_number' => 'required',
+            'vessel_date' => 'required',
+            'mark_and_numbers1' => 'required',
+            'costs' => 'required',
         ]);
 
 
@@ -147,7 +154,8 @@ class InvoiceController extends Controller {
         return $return;
     }
 
-    public function pade_edit($id) {
+    public function pade_edit($id)
+    {
         $data['invoice'] = Invoice::with('invoice_detail')->with('customer')->with('dealer')->findOrFail($id);
         $data['mycompany'] = Mycompany::first();
         $data['customers'] = Customer::orderBy('company_name_eng', 'asc')->get();
@@ -155,7 +163,8 @@ class InvoiceController extends Controller {
         return view('edit_invoice', $data);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
 
         $input_all = $request->all();
         $input_all['date_update'] = date('Y-m-d H:i:s');
@@ -168,12 +177,12 @@ class InvoiceController extends Controller {
         $select_items = $request->input('select_item');
 
         $validator = Validator::make($request->all(), [
-                    'customer_id' => 'required',
-                    'dealer_id' => 'required',
-                    'our_reference_number' => 'required',
-                    'vessel_date' => 'required',
-                    'mark_and_numbers1' => 'required',
-                    'costs' => 'required',
+            'customer_id' => 'required',
+            'dealer_id' => 'required',
+            'our_reference_number' => 'required',
+            'vessel_date' => 'required',
+            'mark_and_numbers1' => 'required',
+            'costs' => 'required',
         ]);
 
         $return['title'] = 'แก้ไขข้อมูล';
@@ -221,7 +230,8 @@ class InvoiceController extends Controller {
         return $return;
     }
 
-    public function export_for_pdf($id, $copy = null) {
+    public function export_for_pdf($id, $copy = null)
+    {
 
         if (isset($copy)) {
             $data['copy'] = 1;
@@ -238,21 +248,29 @@ class InvoiceController extends Controller {
         return $pdf->stream($data['invoice']->invoice_number . '.pdf', $data);
     }
 
-    public function get_date_by_invoice_id($id) {
-        $result = Invoice::where('id', $id)->selectRaw(\DB::raw('DATE_FORMAT(invoice_date, "%d-%m-%Y") as invoice_date'))->first();
+    public function get_date_by_invoice_id($id)
+    {
+        $result = Invoice::where('id', $id)->selectRaw(\DB::raw('DATE_FORMAT(invoice_date, "%d-%m-%Y") as invoice_date,DATE_FORMAT(due_date, "%d-%m-%Y") as due_date'))->first();
         return json_encode($result);
     }
 
-    public function update_date_by_invoice_id(Request $request, $id) {
+    public function update_date_by_invoice_id(Request $request, $id)
+    {
 
         $invoice_date = $request->input('invoice_date');
+        $due_date = $request->input('due_date');
 
         $validator = Validator::make($request->all(), [
-                    'invoice_date' => 'required',
+            'invoice_date' => 'required',
+            'due_date' => 'required',
         ]);
 
         if (isset($invoice_date)) {
             $invoice_date = date('Y-m-d', strtotime($invoice_date));
+        }
+
+        if (isset($due_date)) {
+            $due_date = date('Y-m-d', strtotime($due_date));
         }
 
         $return['title'] = 'แก้ไขข้อมูล';
@@ -267,7 +285,7 @@ class InvoiceController extends Controller {
 
         try {
 
-            Invoice::where('id', $id)->update(['invoice_date' => $invoice_date]);
+            Invoice::where('id', $id)->update(['invoice_date' => $invoice_date, 'due_date' => $due_date]);
 
             \DB::commit();
             $return['status'] = 1;
@@ -280,5 +298,4 @@ class InvoiceController extends Controller {
 
         return $return;
     }
-
 }

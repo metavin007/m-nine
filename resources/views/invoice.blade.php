@@ -61,6 +61,12 @@
                                     <input type="text" name="invoice_date" id="edit_invoice_date" class="form-control" maxlength="10">
                                 </div>
                             </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Due Date : </label>
+                                    <input type="text" name="due_date" id="edit_due_date" class="form-control" maxlength="10">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -83,32 +89,59 @@
         autoWidth: false,
         responsive: true,
         columnDefs: [{
-                targets: "datatable-nosort",
-                orderable: false,
-            }],
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            targets: "datatable-nosort",
+            orderable: false,
+        }],
+        "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+        ],
         "ajax": {
             "url": url_gb + "/invoice/get_datatable",
-            "data": function (d) {
+            "data": function(d) {
                 //d.myKey = "myValue";
                 // d.custom = $('#myInput').val();
                 // etc
             }
         },
-        "columns": [
-            {"data": "DT_RowIndex", "className": "text-center", "orderable": false, "searchable": false},
-            {"data": "invoice_number", "className": "text-center"},
-            {"data": "status", "className": "text-center"},
-            {"data": "invoice_date", "className": "text-center"},
-            {"data": "date_update", "className": "text-center"},
-            {"data": "action", "className": "action text-center text-nowrap", "orderable": false, "searchable": false}
-        ], "order": [[3, "desc"]],
-        rowCallback: function (row, data, index) {
+        "columns": [{
+                "data": "DT_RowIndex",
+                "className": "text-center",
+                "orderable": false,
+                "searchable": false
+            },
+            {
+                "data": "invoice_number",
+                "className": "text-center"
+            },
+            {
+                "data": "status",
+                "className": "text-center"
+            },
+            {
+                "data": "invoice_date",
+                "className": "text-center"
+            },
+            {
+                "data": "date_update",
+                "className": "text-center"
+            },
+            {
+                "data": "action",
+                "className": "action text-center text-nowrap",
+                "orderable": false,
+                "searchable": false
+            }
+        ],
+        "order": [
+            [3, "desc"]
+        ],
+        rowCallback: function(row, data, index) {
 
         }
     });
 
-    $('body').on('click', '.btn-edit_date', function (e) {
+    $('body').on('click', '.btn-edit_date', function(e) {
         e.preventDefault();
         var btn = $(this);
         btn.button('loading');
@@ -118,12 +151,17 @@
             method: "get",
             url: url_gb + "/invoice/get_date_by_invoice_id/" + id,
             dataType: 'json'
-        }).done(function (rec) {
+        }).done(function(rec) {
             $('#edit_invoice_date').val(rec.invoice_date);
+            $('#edit_due_date').val(rec.due_date);
             $('#ModalEditDate').modal("show");
             btn.button("reset");
-        }).fail(function () {
-            Swal.fire({icon: 'error', title: 'เกิดข้อผิดพลาด', text: 'กรุณาติดต่อผู้ดูแลระบบ !'});
+        }).fail(function() {
+            Swal.fire({
+                icon: 'error',
+                title: 'เกิดข้อผิดพลาด',
+                text: 'กรุณาติดต่อผู้ดูแลระบบ !'
+            });
             btn.button("reset");
         });
     });
@@ -134,24 +172,30 @@
             invoice_date: {
                 required: true,
             },
+            due_date: {
+                required: true,
+            }
         },
         messages: {
             invoice_date: {
                 required: "กรุณาระบุ",
             },
+            due_date: {
+                required: "กรุณาระบุ",
+            }
         },
-        errorPlacement: function (error, element) { // คำสั่งโชกล่องข้อความ
+        errorPlacement: function(error, element) { // คำสั่งโชกล่องข้อความ
             error.addClass("text-danger");
             error.insertAfter(element);
         },
-        highlight: function (element, errorClass, validClass) { // ใส่สีเมื่อเกิด error
+        highlight: function(element, errorClass, validClass) { // ใส่สีเมื่อเกิด error
             $(element).addClass("is-invalid");
         },
-        unhighlight: function (element, errorClass, validClass) { // ใส่สีเมื่อผ่าน error แล้ว;
+        unhighlight: function(element, errorClass, validClass) { // ใส่สีเมื่อผ่าน error แล้ว;
             $(element).removeClass("is-invalid");
             $(element).addClass("is-valid");
         },
-        submitHandler: function (form) {
+        submitHandler: function(form) {
             var btn = $(form).find('[type="submit"]');
             var id = $('#invoice_id').val();
             btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...').attr('disabled', true);
@@ -160,7 +204,7 @@
                 url: url_gb + "/invoice/update_date_by_invoice_id/" + id,
                 dataType: 'json',
                 data: $(form).serialize()
-            }).done(function (rec) {
+            }).done(function(rec) {
                 if (rec.status == 1) {
                     Swal.fire({
                         icon: 'success',
@@ -171,11 +215,19 @@
                         $('#ModalEditDate').modal("hide");
                     });
                 } else {
-                    Swal.fire({icon: 'error', title: rec.title, text: rec.content});
+                    Swal.fire({
+                        icon: 'error',
+                        title: rec.title,
+                        text: rec.content
+                    });
                     $('#ModalEditDate').modal("hide");
                 }
-            }).fail(function () {
-                Swal.fire({icon: 'error', title: 'เกิดข้อผิดพลาด', text: 'กรุณาติดต่อผู้ดูแลระบบ !'});
+            }).fail(function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'เกิดข้อผิดพลาด',
+                    text: 'กรุณาติดต่อผู้ดูแลระบบ !'
+                });
                 btn.html('Save').attr('disabled', false);
             });
         }
